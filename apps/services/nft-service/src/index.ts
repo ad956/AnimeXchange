@@ -1,12 +1,16 @@
-import express, { Express, Request, Response } from "express";
+import { kafka } from "shared";
 
-const app: Express = express();
-const port = 3000;
+const consumer = kafka.consumer({ groupId: "nft-service-group" });
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
-});
+async function startConsumer() {
+  await consumer.connect();
+  await consumer.subscribe({ topic: "nft-creation", fromBeginning: true });
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+  await consumer.run({
+    eachMessage: async ({ topic, partition, message }) => {
+      console.log("NFT Service received message:", message.value?.toString());
+    },
+  });
+}
+
+startConsumer().catch(console.error);
