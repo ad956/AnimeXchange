@@ -90,14 +90,14 @@ AnimeXchange is built using a modern microservices architecture to ensure scalab
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/animexchange.git
+   git clone https://github.com/ad956/AnimeXchange.git
    cd animexchange
    ```
 
 2. **Install dependencies**:
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. **Set up environment variables**:
@@ -110,7 +110,7 @@ AnimeXchange is built using a modern microservices architecture to ensure scalab
 
    ```bash
    docker-compose up -d
-   npm run dev
+   pnpm run dev
    ```
 
 5. **Open the app**:
