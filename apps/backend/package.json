@@ -14,7 +14,8 @@
   "author": "ad956",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "shared": "workspace:^"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
