@@ -14,7 +14,7 @@ AnimeXchange is a state-of-the-art NFT marketplace focused on anime and manga di
 ## 🛠️ Tech Stack
 
 <!-- Frontend Tech Stack -->
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
     <h5 style="margin-right: 10px;">Frontend:</h5>
     <div style="display: flex; gap: 15px;">
         <a href="https://nextjs.org" target="_blank">
@@ -27,7 +27,7 @@ AnimeXchange is a state-of-the-art NFT marketplace focused on anime and manga di
 </div>
 
 <!-- Backend Tech Stack -->
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
     <h5 style="margin-right: 10px;">Backend:</h5>
     <div style="display: flex; gap: 15px;">
         <a href="https://expressjs.com" target="_blank">
@@ -49,7 +49,7 @@ AnimeXchange is a state-of-the-art NFT marketplace focused on anime and manga di
 </div>
 
 <!-- DevOps Tech Stack -->
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
     <h5 style="margin-right: 10px;">DevOps:</h5>
     <div style="display: flex; gap: 15px;">
         <a href="https://www.docker.com" target="_blank">
@@ -62,7 +62,7 @@ AnimeXchange is a state-of-the-art NFT marketplace focused on anime and manga di
 </div>
 
 <!-- Build Tools Tech Stack -->
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
     <h5 style="margin-right: 10px;">Build Tools:</h5>
     <div style="display: flex; gap: 15px;">
         <a href="https://turborepo.org" target="_blank">
