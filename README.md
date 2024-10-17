@@ -33,6 +33,9 @@ AnimeXchange is a state-of-the-art NFT marketplace focused on anime and manga di
         <a href="https://expressjs.com" target="_blank">
             <img src="https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white" alt="Express.js" />
         </a>
+      <a href="https://graphql.org" target="_blank">
+    <img src="https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=white" alt="GraphQL" />
+</a>
         <a href="https://www.postgresql.org" target="_blank">
             <img src="https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white" alt="PostgreSQL" />
         </a>
