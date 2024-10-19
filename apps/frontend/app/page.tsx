@@ -1,10 +1,45 @@
-import { Award, ShoppingCart, Wallet } from "lucide-react";
-import Image from "next/image";
+import { Award, ShoppingCart, Wallet, TrendingUp, Users } from "lucide-react";
+
+const FEATURED_COLLECTIONS = [
+  {
+    name: "Attack on Titan",
+    image:
+      "https://m.media-amazon.com/images/I/81qPzeEO5IL._AC_UF1000,1000_QL80_.jpg",
+    floor: "2.5 ETH",
+    volume: "1.2K ETH",
+  },
+  {
+    name: "One Piece",
+    image:
+      "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781974743278/one-piece-vol-105-9781974743278_hr.jpg",
+    floor: "1.8 ETH",
+    volume: "2.5K ETH",
+  },
+  {
+    name: "Jujutsu Kaisen",
+    image:
+      "https://comicvine.gamespot.com/a/uploads/scale_small/11158/111586527/9320740-8135905092-97840.jpg",
+    floor: "1.2 ETH",
+    volume: "950 ETH",
+  },
+  {
+    name: "Dragon Ball",
+    image:
+      "https://logos-world.net/wp-content/uploads/2021/02/Dragon-Ball-Logo-700x394.png",
+    floor: "3.0 ETH",
+    volume: "3.2K ETH",
+  },
+];
+
+const HERO_IMAGES = [
+  "https://m.media-amazon.com/images/I/71z4V6fR1vL._AC_UF1000,1000_QL80_.jpg",
+  "https://m.media-amazon.com/images/M/MV5BNmI1MmYxNWQtY2E5NC00ZTlmLWIzZGEtNzM1YmE3NDA5NzhjXkEyXkFqcGc@._V1_.jpg",
+];
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <nav className="border-b border-gray-800">
+      <nav className="border-b border-gray-800 sticky top-0 bg-gray-900/95 backdrop-blur-sm z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -51,20 +86,41 @@ export default function Home() {
           </div>
           <div className="lg:w-1/2 mt-12 lg:mt-0">
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-800 p-4 rounded-xl">
-                <Image
-                  src="https://i.pinimg.com/originals/4a/8c/d0/4a8cd0fa79f93ee3531e6083ca2234b5.jpg"
-                  alt="Anime NFT"
-                  className="rounded-lg w-full"
-                />
-              </div>
-              <div className="bg-gray-800 p-4 rounded-xl mt-8">
-                <Image
-                  src="https://i.pinimg.com/originals/4a/8c/d0/4a8cd0fa79f93ee3531e6083ca2234b5.jpg"
-                  alt="Anime NFT"
-                  className="rounded-lg w-full"
-                />
-              </div>
+              {HERO_IMAGES.map((img, index) => (
+                <div
+                  key={index}
+                  className={`bg-gray-800 p-4 rounded-xl ${index === 1 ? "mt-8" : ""}`}
+                >
+                  <img
+                    src={img}
+                    alt="Anime NFT"
+                    className="rounded-lg w-full h-64 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gray-800/50">
+        <div className="container mx-auto px-6 py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <p className="text-4xl font-bold text-purple-400">100K+</p>
+              <p className="text-gray-400 mt-2">Active Users</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-purple-400">50K+</p>
+              <p className="text-gray-400 mt-2">NFTs Created</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-purple-400">10K+</p>
+              <p className="text-gray-400 mt-2">Artists</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-purple-400">5K ETH</p>
+              <p className="text-gray-400 mt-2">Trading Volume</p>
             </div>
           </div>
         </div>
@@ -110,24 +166,71 @@ export default function Home() {
       </div>
 
       <div className="container mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold mb-12">Trending Collections</h2>
+        <div className="flex justify-between items-center mb-12">
+          <h2 className="text-3xl font-bold">Featured Collections</h2>
+          <button className="flex items-center space-x-2 text-purple-400 hover:text-purple-300">
+            <span>View All</span>
+            <TrendingUp className="w-4 h-4" />
+          </button>
+        </div>
         <div className="grid md:grid-cols-4 gap-6">
-          {[1, 2, 3, 4].map((item) => (
+          {FEATURED_COLLECTIONS.map((collection, index) => (
             <div
-              key={item}
-              className="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition"
+              key={index}
+              className="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300"
             >
-              <Image
-                src="https://m.media-amazon.com/images/M/MV5BNmI1MmYxNWQtY2E5NC00ZTlmLWIzZGEtNzM1YmE3NDA5NzhjXkEyXkFqcGc@._V1_.jpg"
-                alt="Collection"
-                className="w-full"
-              />
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={collection.image}
+                  alt={collection.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="p-4">
-                <h3 className="font-semibold mb-2">Anime Collection #{item}</h3>
-                <p className="text-gray-400">Floor: 0.5 ETH</p>
+                <h3 className="font-semibold mb-2">{collection.name}</h3>
+                <div className="flex justify-between text-sm">
+                  <div>
+                    <p className="text-gray-400">Floor</p>
+                    <p className="font-medium">{collection.floor}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-gray-400">Volume</p>
+                    <p className="font-medium">{collection.volume}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className="bg-gray-800/50">
+        <div className="container mx-auto px-6 py-16">
+          <div className="flex justify-between items-center mb-12">
+            <h2 className="text-3xl font-bold">Top Creators</h2>
+            <button className="flex items-center space-x-2 text-purple-400 hover:text-purple-300">
+              <span>View All</span>
+              <Users className="w-4 h-4" />
+            </button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[1, 2, 3, 4].map((creator) => (
+              <div
+                key={creator}
+                className="flex items-center space-x-4 bg-gray-800 p-4 rounded-xl"
+              >
+                <img
+                  src="/api/placeholder/64/64"
+                  alt={`Creator ${creator}`}
+                  className="w-16 h-16 rounded-full"
+                />
+                <div>
+                  <h3 className="font-semibold">Creator {creator}</h3>
+                  <p className="text-purple-400">10.5K NFTs</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -147,20 +250,89 @@ export default function Home() {
 
       <footer className="border-t border-gray-800">
         <div className="container mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-4 md:mb-0">
-              AnimeXchange
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-4">
+                AnimeXchange
+              </div>
+              <p className="text-gray-400">
+                The ultimate anime NFT marketplace
+              </p>
             </div>
-            <div className="flex space-x-6">
-              <a href="#" className="hover:text-purple-400 transition">
-                Terms
-              </a>
-              <a href="#" className="hover:text-purple-400 transition">
-                Privacy
-              </a>
-              <a href="#" className="hover:text-purple-400 transition">
-                Help
-              </a>
+            <div>
+              <h4 className="font-semibold mb-4">Marketplace</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    All NFTs
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    New
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Art
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Collections
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Partners
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Newsletter
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-purple-400">
+                    Privacy
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
