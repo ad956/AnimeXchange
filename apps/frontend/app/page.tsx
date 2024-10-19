@@ -1,4 +1,42 @@
-import { Award, ShoppingCart, Wallet, TrendingUp, Users } from "lucide-react";
+"use client";
+
+import {
+  Award,
+  ShoppingCart,
+  Wallet,
+  TrendingUp,
+  Users,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { useRef } from "react";
+
+const CREATORS: any = [
+  {
+    name: "ArtMaster",
+    nfts: "12.5K",
+    image:
+      "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1729359467/animexchange/b1e979ae54cb4b2227115462c29fc4a2_dhbt2x.gif",
+  },
+  {
+    name: "AnimeWizard",
+    nfts: "10.2K",
+    image:
+      "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1729359463/animexchange/c8408c9c3c985f7354ac72c2be39703d_c1oi8w.jpg",
+  },
+  {
+    name: "PixelMaster",
+    nfts: "8.7K",
+    image:
+      "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1729359450/animexchange/my-dino_rsxcfg.png",
+  },
+  {
+    name: "NFTLegend",
+    nfts: "15.3K",
+    image:
+      "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1729359449/animexchange/1133950_jhlxbl.jpg",
+  },
+];
 
 const FEATURED_COLLECTIONS = [
   {
@@ -7,6 +45,8 @@ const FEATURED_COLLECTIONS = [
       "https://m.media-amazon.com/images/I/81qPzeEO5IL._AC_UF1000,1000_QL80_.jpg",
     floor: "2.5 ETH",
     volume: "1.2K ETH",
+    creator:
+      "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1729359443/animexchange/wallpaperflare.com_wallpaper_7_fc6ves.jpg",
   },
   {
     name: "One Piece",
@@ -14,6 +54,8 @@ const FEATURED_COLLECTIONS = [
       "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781974743278/one-piece-vol-105-9781974743278_hr.jpg",
     floor: "1.8 ETH",
     volume: "2.5K ETH",
+    creator:
+      "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1729359440/animexchange/1337253_zpjffi.jpg",
   },
   {
     name: "Jujutsu Kaisen",
@@ -21,6 +63,8 @@ const FEATURED_COLLECTIONS = [
       "https://comicvine.gamespot.com/a/uploads/scale_small/11158/111586527/9320740-8135905092-97840.jpg",
     floor: "1.2 ETH",
     volume: "950 ETH",
+    creator:
+      "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1729359439/animexchange/satoru_gojo_shoko_ieiri_suguru_geto_blue_sky_background_hd_jujutsu_kaisen_wbe1od.jpg",
   },
   {
     name: "Dragon Ball",
@@ -28,6 +72,23 @@ const FEATURED_COLLECTIONS = [
       "https://logos-world.net/wp-content/uploads/2021/02/Dragon-Ball-Logo-700x394.png",
     floor: "3.0 ETH",
     volume: "3.2K ETH",
+    creator: CREATORS[0].image,
+  },
+  {
+    name: "Naruto Collection",
+    image:
+      "https://m.media-amazon.com/images/I/71z4V6fR1vL._AC_UF1000,1000_QL80_.jpg",
+    floor: "2.1 ETH",
+    volume: "1.8K ETH",
+    creator: CREATORS[1].image,
+  },
+  {
+    name: "Demon Slayer",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BNmI1MmYxNWQtY2E5NC00ZTlmLWIzZGEtNzM1YmE3NDA5NzhjXkEyXkFqcGc@._V1_.jpg",
+    floor: "1.5 ETH",
+    volume: "2.1K ETH",
+    creator: CREATORS[2].image,
   },
 ];
 
@@ -35,6 +96,81 @@ const HERO_IMAGES = [
   "https://m.media-amazon.com/images/I/71z4V6fR1vL._AC_UF1000,1000_QL80_.jpg",
   "https://m.media-amazon.com/images/M/MV5BNmI1MmYxNWQtY2E5NC00ZTlmLWIzZGEtNzM1YmE3NDA5NzhjXkEyXkFqcGc@._V1_.jpg",
 ];
+
+const ScrollableCollections = () => {
+  const scrollRef = useRef(null);
+
+  const scroll = (direction: any) => {
+    const container: any = scrollRef.current;
+    const scrollAmount = 400;
+    if (container) {
+      container.scrollTo({
+        left:
+          container.scrollLeft +
+          (direction === "left" ? -scrollAmount : scrollAmount),
+        behavior: "smooth",
+      });
+    }
+  };
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => scroll("left")}
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-purple-600 p-2 rounded-full z-10 hover:bg-purple-700 transition"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto gap-6 scroll-smooth no-scrollbar"
+        style={{ scrollSnapType: "x mandatory" }}
+      >
+        {FEATURED_COLLECTIONS.map((collection, index) => (
+          <div
+            key={index}
+            className="min-w-[300px] bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300"
+            style={{ scrollSnapAlign: "start" }}
+          >
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src={collection.image}
+                alt={collection.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-2 left-2">
+                <img
+                  src={collection.creator}
+                  alt="Creator"
+                  className="w-8 h-8 rounded-full border-2 border-purple-500"
+                />
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-semibold mb-2">{collection.name}</h3>
+              <div className="flex justify-between text-sm">
+                <div>
+                  <p className="text-gray-400">Floor</p>
+                  <p className="font-medium">{collection.floor}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-400">Volume</p>
+                  <p className="font-medium">{collection.volume}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <button
+        onClick={() => scroll("right")}
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-purple-600 p-2 rounded-full z-10 hover:bg-purple-700 transition"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -165,7 +301,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-16 ">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-3xl font-bold">Featured Collections</h2>
           <button className="flex items-center space-x-2 text-purple-400 hover:text-purple-300">
@@ -173,35 +309,7 @@ export default function Home() {
             <TrendingUp className="w-4 h-4" />
           </button>
         </div>
-        <div className="grid md:grid-cols-4 gap-6">
-          {FEATURED_COLLECTIONS.map((collection, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={collection.image}
-                  alt={collection.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">{collection.name}</h3>
-                <div className="flex justify-between text-sm">
-                  <div>
-                    <p className="text-gray-400">Floor</p>
-                    <p className="font-medium">{collection.floor}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-gray-400">Volume</p>
-                    <p className="font-medium">{collection.volume}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ScrollableCollections />
       </div>
 
       <div className="bg-gray-800/50">
@@ -214,19 +322,19 @@ export default function Home() {
             </button>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map((creator) => (
+            {CREATORS.map((creator: any, index: number) => (
               <div
-                key={creator}
-                className="flex items-center space-x-4 bg-gray-800 p-4 rounded-xl"
+                key={index}
+                className="flex items-center space-x-4 bg-gray-800 p-4 rounded-xl hover:bg-gray-700 transition duration-300"
               >
                 <img
-                  src="/api/placeholder/64/64"
-                  alt={`Creator ${creator}`}
-                  className="w-16 h-16 rounded-full"
+                  src={creator.image}
+                  alt={creator.name}
+                  className="w-16 h-16 rounded-full object-cover border-2 border-purple-500"
                 />
                 <div>
-                  <h3 className="font-semibold">Creator {creator}</h3>
-                  <p className="text-purple-400">10.5K NFTs</p>
+                  <h3 className="font-semibold">{creator.name}</h3>
+                  <p className="text-purple-400">{creator.nfts} NFTs</p>
                 </div>
               </div>
             ))}
