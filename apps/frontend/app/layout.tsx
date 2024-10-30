@@ -18,6 +18,27 @@ export const metadata: Metadata = {
     "Discover and trade unique anime NFTs on AnimeXchange - the premier marketplace for digital anime collectibles, artwork, and exclusive fan content.",
   keywords:
     "anime NFTs, digital collectibles, anime artwork, NFT marketplace, anime trading, digital art",
+  authors: [{ name: "Anand Suthar", url: "https://github.com/ad956" }],
+  creator: "Anand Suthar",
+  applicationName: "AnimeXchange",
+  referrer: "origin-when-cross-origin",
+  generator: "Next.js",
+  publisher: "Anand Suthar",
+  robots: "index, follow",
+  metadataBase: new URL("https://animexchange.vercel.app"),
+  openGraph: {
+    type: "website",
+    url: "https://animexchange.vercel.app",
+    title: "AnimeXchange",
+    description:
+      "Discover and trade unique anime NFTs on AnimeXchange - the premier marketplace for digital anime collectibles, artwork, and exclusive fan content.",
+    siteName: "AnimeXchange",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dtkfvp2ic/image/upload/v1711037583/patient_yluzvs_bnz9ox.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
