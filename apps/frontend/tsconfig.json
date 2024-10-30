@@ -8,7 +8,9 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@components*": ["./components/*"],
+      "@components/*": ["./components/*"],
+      "@lib/*": ["./lib/*"],
+      "@constants": ["./lib/constants.ts"],
     }
   },
   "include": [
