@@ -1,86 +1,72 @@
 "use client";
 
-import React, { useState } from "react";
-import { z } from "zod";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import React from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useRouter } from "next/navigation";
-
-// Define a Zod schema for the login form
-const loginSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-});
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Parse form data with the Zod schema
-    const result = loginSchema.safeParse({ email, password });
-    if (!result.success) {
-      // Safely access the error message
-      setError(result.error.errors[0]?.message || "Validation error");
-      return;
-    }
-
-    try {
-      // simulate login process
-      console.log("Logging in with:", { email, password });
-      setError(null);
-      //   router.push("/dashboard");
-    } catch (error) {
-      setError("Invalid email or password");
-    }
-  };
-
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
-        <h2 className="text-2xl font-semibold text-center text-gray-800">
-          Login
-        </h2>
-        <form onSubmit={handleLogin}>
-          <CardContent>
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-              <div>
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
-                  required
-                />
-              </div>
-              {error && <p className="text-red-500 text-sm">{error}</p>}
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 flex items-center justify-center p-4">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-10 bg-cover bg-center"></div>
+      </div>
+
+      <Card className="w-full max-w-md bg-white/95 backdrop-blur-sm">
+        <CardContent className="p-6">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              AnimeXchange
+            </h1>
+            <div className="text-sm text-gray-600 mt-2">
+              🎌 Welcome to Your Anime NFT Journey ✨
             </div>
-          </CardContent>
-          <CardFooter className="flex justify-center">
-            <Button type="submit" className="w-full mt-4">
-              Login
+          </div>
+
+          <form className="space-y-6">
+            <div className="space-y-2">
+              <Label className="text-sm font-medium">Username</Label>
+              <Input
+                placeholder="Enter your username"
+                className="h-12 bg-white/50 border-purple-200 focus:border-purple-500"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-sm font-medium">Password</Label>
+              <Input
+                type="password"
+                placeholder="Enter your password"
+                className="h-12 bg-white/50 border-purple-200 focus:border-purple-500"
+              />
+            </div>
+
+            <Button className="w-full h-12 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
+              Login to Marketplace
             </Button>
-          </CardFooter>
-        </form>
+
+            <div className="text-center space-y-4">
+              <Button variant="link" className="text-purple-600">
+                Forgot Password?
+              </Button>
+
+              <div className="text-sm text-gray-600">
+                New to AnimeXchange?{" "}
+                <Button variant="link" className="text-purple-600 p-0">
+                  Create Account
+                </Button>
+              </div>
+            </div>
+          </form>
+
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <div className="text-xs text-center text-gray-500">
+              By continuing, you agree to AnimeXchange's Terms of Service and
+              NFT Trading Policy
+            </div>
+          </div>
+        </CardContent>
       </Card>
     </div>
   );
