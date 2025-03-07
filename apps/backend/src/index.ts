@@ -6,6 +6,11 @@ const producer = kafka.producer();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  let d = `db user => ${process.env.POSTGRES_USER}`;
+  res.send(d);
+});
+
 // API Gateway routes
 app.post("/api/nft/create", async (req, res) => {
   try {
