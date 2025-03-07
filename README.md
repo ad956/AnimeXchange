@@ -1,84 +1,137 @@
-# Turborepo starter
+# AnimeXchange 🎌✨
 
-This Turborepo starter is maintained by the Turborepo core team.
+AnimeXchange is a state-of-the-art NFT marketplace focused on anime and manga digital collectibles. It offers a secure, scalable, and user-friendly platform where users can trade, showcase, and discover exclusive anime-inspired digital assets.
 
-## Using this example
+## 🎨 Key Features
 
-Run the following command:
+- 🖼️ **Curated Anime NFTs**: Featuring exclusive collections from popular artists and studios
+- 🔒 **Secure Trading**: Powered by blockchain technology, ensuring transparent and safe transactions
+- 🌐 **Community-Driven**: Engage with a vibrant community of anime enthusiasts, artists, and collectors
+- ⛓️ **Multi-Chain Support**: Seamless trading across various blockchain networks
+- ⚡ **Auction House**: Participate in live auctions for rare anime collectibles
+- 🛠️ **Creator Tools**: Artists can easily mint and sell their anime-inspired NFTs
 
-```sh
-npx create-turbo@latest
-```
+## 🛠️ Tech Stack
 
-## What's inside?
+<!-- Frontend Tech Stack -->
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
+    <h5 style="margin-right: 10px;">Frontend:</h5>
+    <div style="display: flex; gap: 15px;">
+        <a href="https://nextjs.org" target="_blank">
+            <img src="https://img.shields.io/badge/Next.js-0E1111?logo=next.js&logoColor=white" alt="Next.js" />
+        </a>
+        <a href="https://www.typescriptlang.org" target="_blank">
+            <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" />
+        </a>
+    </div>
+</div>
 
-This Turborepo includes the following packages/apps:
+<!-- Backend Tech Stack -->
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
+    <h5 style="margin-right: 10px;">Backend:</h5>
+    <div style="display: flex; gap: 15px;">
+        <a href="https://expressjs.com" target="_blank">
+            <img src="https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white" alt="Express.js" />
+        </a>
+      <a href="https://graphql.org" target="_blank">
+    <img src="https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=white" alt="GraphQL" />
+</a>
+        <a href="https://www.postgresql.org" target="_blank">
+            <img src="https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white" alt="PostgreSQL" />
+        </a>
+        <a href="https://redis.io" target="_blank">
+            <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white" alt="Redis" />
+        </a>
+        <a href="https://kafka.apache.org" target="_blank">
+            <img src="https://img.shields.io/badge/Kafka-231F20?logo=apache-kafka&logoColor=white" alt="Kafka" />
+        </a>
+        <a href="https://www.nginx.com" target="_blank">
+            <img src="https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=white" alt="Nginx" />
+        </a>
+    </div>
+</div>
 
-### Apps and Packages
+<!-- DevOps Tech Stack -->
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
+    <h5 style="margin-right: 10px;">DevOps:</h5>
+    <div style="display: flex; gap: 15px;">
+        <a href="https://www.docker.com" target="_blank">
+            <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker" />
+        </a>
+        <a href="https://github.com/features/actions" target="_blank">
+            <img src="https://img.shields.io/badge/GitHub%20Actions-0d1117?logo=github&logoColor=white" alt="GitHub Actions" />
+        </a>
+    </div>
+</div>
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+<!-- Build Tools Tech Stack -->
+<div style="display: flex; align-items: center; margin-bottom: 10px;gap:5px;">
+    <h5 style="margin-right: 10px;">Build Tools:</h5>
+    <div style="display: flex; gap: 15px;">
+        <a href="https://turborepo.org" target="_blank">
+            <img src="https://img.shields.io/badge/Turborepo-000000?logo=turborepo&logoColor=white" alt="Turborepo" />
+        </a>
+        <a href="https://pnpm.io" target="_blank">
+            <img src="https://img.shields.io/badge/pnpm-222222?logo=pnpm&logoColor=white" alt="pnpm" />
+        </a>
+    </div>
+</div>
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 🏗️ Architecture Overview
 
-### Utilities
+AnimeXchange is built using a modern microservices architecture to ensure scalability and maintainability:
 
-This Turborepo has some additional tools already setup for you:
+- **Frontend**: Next.js with server-side rendering for fast load times and improved SEO
+- **Backend Services**: Microservices architecture with NestJS and Express.js for user, NFT, marketplace, and wallet management
+- **Data Storage**: PostgreSQL for persistent storage, Redis for caching frequently accessed data
+- **Inter-service Communication**: Apache Kafka for reliable, real-time messaging between services
+- **DevOps**: Containerized deployment with Docker, using Nginx for load balancing and reverse proxy
+- **Monorepo**: Managed with Turborepo for efficient code management and build processes
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## 🚀 Quick Start
 
-### Build
+1. **Clone the repository**:
 
-To build all apps and packages, run the following command:
+   ```bash
+   git clone https://github.com/ad956/AnimeXchange.git
+   cd animexchange
+   ```
 
-```
-cd my-turborepo
-pnpm build
-```
+2. **Install dependencies**:
 
-### Develop
+   ```bash
+   pnpm install
+   ```
 
-To develop all apps and packages, run the following command:
+3. **Set up environment variables**:
 
-```
-cd my-turborepo
-pnpm dev
-```
+   ```bash
+   cp .env.example .env
+   ```
 
-### Remote Caching
+4. **Start the development environment**:
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+   ```bash
+   docker-compose up -d
+   pnpm run dev
+   ```
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+5. **Open the app**:
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+   Navigate to `http://localhost:3000` in your browser.
 
-```
-cd my-turborepo
-npx turbo login
-```
+## 🤝 Contributing
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+We welcome contributions from developers and anime fans alike. Please check out our [Contributing Guide](CONTRIBUTING.md) for details on the code of conduct and how to submit your pull requests.
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## 📜 License
 
-```
-npx turbo link
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Useful Links
+## 📞 Contact
 
-Learn more about the power of Turborepo:
+For support or inquiries, please reach us at support@animexchange.com
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+---
+
+**AnimeXchange** – Bringing anime to the blockchain.
