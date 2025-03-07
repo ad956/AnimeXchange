@@ -271,6 +271,88 @@ importers:
         specifier: ^5.3.3
         version: 5.8.2
 
+  services/marketplace-service:
+    dependencies:
+      express:
+        specifier: ^4.21.1
+        version: 4.21.2
+    devDependencies:
+      '@types/express':
+        specifier: ^5.0.0
+        version: 5.0.0
+      '@types/node':
+        specifier: ^22.7.5
+        version: 22.13.9
+      tsx:
+        specifier: ^4.19.1
+        version: 4.19.3
+      typescript:
+        specifier: ^5.6.3
+        version: 5.8.2
+
+  services/nft-service:
+    dependencies:
+      express:
+        specifier: ^4.21.1
+        version: 4.21.2
+      shared:
+        specifier: workspace:^
+        version: link:../../packages/shared
+    devDependencies:
+      '@types/express':
+        specifier: ^5.0.0
+        version: 5.0.0
+      '@types/node':
+        specifier: ^22.7.5
+        version: 22.13.9
+      tsx:
+        specifier: ^4.19.1
+        version: 4.19.3
+      typescript:
+        specifier: ^5.6.3
+        version: 5.8.2
+
+  services/user-service:
+    dependencies:
+      express:
+        specifier: ^4.21.1
+        version: 4.21.2
+      shared:
+        specifier: workspace:^
+        version: link:../../packages/shared
+    devDependencies:
+      '@types/express':
+        specifier: ^5.0.0
+        version: 5.0.0
+      '@types/node':
+        specifier: ^22.7.5
+        version: 22.13.9
+      tsx:
+        specifier: ^4.19.1
+        version: 4.19.3
+      typescript:
+        specifier: ^5.6.3
+        version: 5.8.2
+
+  services/wallet-service:
+    dependencies:
+      express:
+        specifier: ^4.21.1
+        version: 4.21.2
+    devDependencies:
+      '@types/express':
+        specifier: ^5.0.0
+        version: 5.0.0
+      '@types/node':
+        specifier: ^22.7.5
+        version: 22.13.9
+      tsx:
+        specifier: ^4.19.1
+        version: 4.19.3
+      typescript:
+        specifier: ^5.6.3
+        version: 5.8.2
+
 packages:
 
   /@alloc/quick-lru@5.2.0:
