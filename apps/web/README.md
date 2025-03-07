@@ -8,9 +8,9 @@ The frontend for AnimeXchange is a modern, responsive web application built to s
 
 - **Framework**: Next.js
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **State Management**: React Hooks, Context API
-- **Blockchain Integration**: Web3.js / Ethers.js
+- **Styling**: Tailwind CSS , HeroUI
+<!-- - **State Management**: React Hooks, Context API -->
+<!-- - **Blockchain Integration**: Web3.js / Ethers.js -->
 
 ## 🚀 Quick Start
 
