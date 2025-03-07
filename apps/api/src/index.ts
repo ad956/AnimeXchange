@@ -42,7 +42,7 @@ app.post("/api/user/event", async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
   console.log(`Backend API Gateway listening at http://localhost:${port}`);
