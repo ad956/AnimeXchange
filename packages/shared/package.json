@@ -12,7 +12,8 @@
   "author": "ad956",
   "license": "ISC",
   "dependencies": {
-    "kafkajs": "^2.2.4"
+    "kafkajs": "^2.2.4",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^22.7.5",
